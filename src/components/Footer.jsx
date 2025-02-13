@@ -19,7 +19,7 @@ const Footer = () => {
             <div className="hidden md:block w-[1px] h-16 bg-black/30 md:h-24 md:w-[1px]"></div>
 
             <p className="w-full md:w-2/3 px-4 text-sm  md:text-left text-justify">
-              Votre coach sportif à Genève Que vous soyez débutant ou athlète
+              Votre coach sportif à Genève - Que vous soyez débutant ou athlète
               confirmé, je vous propose un coaching sportif sur mesure, adapté à
               votre niveau, vos objectifs et votre emploi du temps. Passionné de
               montagne et sportif de haut niveau en Trail running et ski
