@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 const NAV_LINKS = [
   { name: "ACCUEIL", href: "/" },
   { name: "QUI SUIS-JE", href: "/about" },
-  { name: "PRESTATIONS", href: "#prestations" },
-  { name: "ACTUALITéS", href: "#actualites" },
-  { name: "CONTACTER VINCENT", href: "#contacter-vincent" },
+  { name: "PRESTATIONS", href: "/prices" },
+  { name: "BLOG", href: "/blog" },
+  { name: "CONTACTER VINCENT", href: "/contact" },
 ];
 
 const Header = () => {
@@ -20,7 +20,7 @@ const Header = () => {
             <img src={logo} alt="Vincent Tenret Logo" className="w-12 h-12" />
           </a>
 
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden space-x-6 md:flex">
             {NAV_LINKS.map(({ name, href }) => (
               <HeaderLink key={name} name={name} href={href} />
             ))}
@@ -33,7 +33,7 @@ const Header = () => {
 
 //* Composant réutilisable pour les liens
 const HeaderLink = ({ name, href }) => (
-  <Link to={href} className="text-gray-700 font-bold uppercase">
+  <Link to={href} className="font-bold text-gray-700 uppercase">
     {name}
   </Link>
 );
