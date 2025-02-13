@@ -4,17 +4,14 @@ const ProfileCard = ({ title, description, icon: Icon }) => {
   return (
     <div className="bg-white p-6 shadow-lg rounded-lg">
       <div className="mb-4 text-center">
-        {/* Icône principale */}
         <div className="flex justify-center">
           <Icon className="w-16 h-16 text-gray-500" />
         </div>
 
-        {/* Titre */}
         <span className="text-2xl text-center font-extrabold block my-4 text-gray-500 uppercase">
           {title}
         </span>
 
-        {/* Liste des descriptions avec icônes Lucide */}
         <ul className="text-left space-y-2">
           {description.map((desc, index) => (
             <li key={index} className="flex items-start space-x-2">

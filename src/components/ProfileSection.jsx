@@ -77,11 +77,18 @@ const ProfileSection = () => {
     },
   ];
 
+  const sportsList = [
+    "Trail",
+    "Ski de randonnée",
+    "Vélo de route",
+    "Course à pied",
+    "Natation",
+  ];
+
   return (
     <div>
       <MaxWidthWrapper>
         <section id="qui-suis-je" className="py-10">
-          {/* Grid des expériences */}
           <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-3">
             {presentations.experience.map((item, index) => (
               <ProfileCard key={index} {...item} />
@@ -94,7 +101,6 @@ const ProfileSection = () => {
             ))}
           </div>
 
-          {/* Texte central */}
           <div>
             <p className="text-center text-xl mt-6 font-light px-6 py-3 rounded-md bg-gray-300 w-2/3 mx-auto">
               Performance / Nutrition / Silhouette : Vincent répond à vos
@@ -102,24 +108,21 @@ const ProfileSection = () => {
             </p>
           </div>
 
-          {/* Section des races */}
           <h1 className="text-center text-3xl mt-10 uppercase font-extrabold">
             Ses expériences sportives
           </h1>
           <p className="text-center text-gray-500 mt-2">
             Une sélection des courses auxquelles Vincent a participé
           </p>
-          {/* Grid des courses */}
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
             {races.map((race, index) => (
               <div
                 key={index}
                 className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-4 hover:scale-105 transition-transform duration-300"
               >
-                {/* Icône de médaille */}
                 <race.icon className="w-12 h-12 text-brand flex-shrink-0" />
 
-                {/* Détails de la course */}
                 <div className="max-w-2/3">
                   <h2 className="text-xl font-bold text-gray-800">
                     {race.title}
@@ -136,9 +139,25 @@ const ProfileSection = () => {
               </div>
             ))}
           </div>
-          <div className="flex items-center  mt-10 gap-10">
-            <h1 className="text-3xl uppercase font-extrabold">Il Pratique:</h1>
-            <p className="text-xl px-6 py-3 rounded-md bg-gray-300">Le Trail</p>
+          <div className="flex flex-col md:flex-row items-center mt-10 gap-6 md:gap-10 text-center md:text-left">
+            <h1 className="text-2xl md:text-3xl uppercase font-extrabold">
+              Je Pratique :
+            </h1>
+
+            <div className="flex flex-wrap justify-center md:justify-start gap-6">
+              {sportsList.map((sport, index) => (
+                <div
+                  key={index}
+                  className="bg-white shadow-lg rounded-lg py-4 px-6 flex items-center space-x-4 hover:scale-105 transition-transform duration-300 w-full md:w-auto"
+                >
+                  <div className="max-w-2/3">
+                    <h2 className="text-lg md:text-xl font-bold text-gray-800">
+                      {sport}
+                    </h2>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </MaxWidthWrapper>
