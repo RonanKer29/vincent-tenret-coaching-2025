@@ -33,14 +33,7 @@ const Header = () => {
 
 //* Composant réutilisable pour les liens
 const HeaderLink = ({ name, href }) => (
-<<<<<<< HEAD
   <Link to={href} className="font-bold text-gray-700 uppercase">
-=======
-  <Link
-    to={href}
-    className="font-bold uppercase transition text-orange-11 hover:text-orange-10"
-  >
->>>>>>> 47cb1d2 (morning work)
     {name}
   </Link>
 );
