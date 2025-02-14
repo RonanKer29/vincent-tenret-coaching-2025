@@ -5,18 +5,18 @@
 @layer base {
   /* Fond et texte général */
   body {
-    @apply bg-background text-orange-11;
+    @apply bg-background text-text;
   }
 }
 
 @layer components {
   /* 📌 Boutons */
   .btn-primary {
-    @apply px-4 py-2 font-semibold text-white transition duration-200 rounded-lg shadow-md bg-orange-9 hover:bg-orange-10;
+    @apply px-4 py-2 font-semibold text-white transition duration-200 rounded-lg shadow-md bg-blue-9 hover:bg-blue-10;
   }
 
   .btn-secondary {
-    @apply px-4 py-2 font-semibold transition duration-200 rounded-lg shadow-sm bg-orange-4 text-orange-12 hover:bg-orange-5;
+    @apply px-4 py-2 font-semibold transition duration-200 rounded-lg shadow-sm bg-blue-4 text-blue-12 hover:bg-blue-5;
   }
 
   /* 📌 Bordures */
@@ -25,20 +25,20 @@
   }
 
   .border-strong {
-    @apply border-2 border-orange-9;
+    @apply border-2 border-blue-7;
   }
 
   /* 📌 Header */
   .header-border {
-    @apply border-b border-border;
+    @apply border-b border-blue-6;
   }
 
   /* 📌 Textes */
   .text-primary {
-    @apply text-orange-11;
+    @apply text-blue-12;
   }
 
   .text-accent {
-    @apply text-orange-9;
+    @apply text-blue-9;
   }
 }

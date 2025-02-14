@@ -86,51 +86,51 @@ const ProfileSection = () => {
   ];
 
   return (
-    <div>
+    <div className="bg-blue-1">
       <MaxWidthWrapper>
         <section id="qui-suis-je" className="py-10">
+          {/* 🔹 Section Présentation */}
           <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-3">
-            {presentations.experience.map((item, index) => (
-              <ProfileCard key={index} {...item} />
-            ))}
-            {presentations.speciality.map((item, index) => (
-              <ProfileCard key={index} {...item} />
-            ))}
-            {presentations.qualification.map((item, index) => (
-              <ProfileCard key={index} {...item} />
-            ))}
+            {Object.values(presentations)
+              .flat()
+              .map((item, index) => (
+                <ProfileCard key={index} {...item} />
+              ))}
           </div>
 
+          {/* 🔹 Section Information */}
           <div>
-            <p className="text-center text-xl mt-6 font-light px-6 py-3 rounded-md bg-gray-300 w-2/3 mx-auto">
+            <p className="w-2/3 px-6 py-3 mx-auto mt-6 text-xl font-light text-center rounded-md bg-blue-3 text-blue-11">
               Performance / Nutrition / Silhouette : Vincent répond à vos
               objectifs
             </p>
           </div>
 
-          <h1 className="text-center text-3xl mt-10 uppercase font-extrabold">
+          {/* 🔹 Section Expériences Sportives */}
+          <h1 className="mt-10 text-3xl font-extrabold text-center uppercase text-blue-12">
             Ses expériences sportives
           </h1>
-          <p className="text-center text-gray-500 mt-2">
+          <p className="mt-2 text-center text-blue-11">
             Une sélection des courses auxquelles Vincent a participé
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
+          {/* 🔹 Liste des courses */}
+          <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-2">
             {races.map((race, index) => (
               <div
                 key={index}
-                className="bg-white shadow-lg rounded-lg p-6 flex items-center space-x-4 hover:scale-105 transition-transform duration-300"
+                className="flex items-center p-6 space-x-4 transition-transform duration-300 border rounded-lg shadow-lg bg-blue-2 border-blue-6 hover:scale-105"
               >
-                <race.icon className="w-12 h-12 text-brand flex-shrink-0" />
+                <race.icon className="flex-shrink-0 w-12 h-12 text-blue-9" />
 
                 <div className="max-w-2/3">
-                  <h2 className="text-xl font-bold text-gray-800">
+                  <h2 className="text-xl font-bold text-blue-12">
                     {race.title}
                   </h2>
-                  <ul className="text-gray-600 mt-2 space-y-1">
+                  <ul className="mt-2 space-y-1 text-blue-11">
                     {race.description.map((desc, i) => (
                       <li key={i} className="flex items-center">
-                        <CircleSmall className="w-4 h-4 text-brand mr-2" />{" "}
+                        <CircleSmall className="w-4 h-4 mr-2 text-blue-8" />{" "}
                         {desc}
                       </li>
                     ))}
@@ -139,19 +139,21 @@ const ProfileSection = () => {
               </div>
             ))}
           </div>
-          <div className="flex flex-col md:flex-row items-center mt-10 gap-6 md:gap-10 text-center md:text-left">
-            <h1 className="text-2xl md:text-3xl uppercase font-extrabold">
+
+          {/* 🔹 Liste des sports pratiqués */}
+          <div className="flex flex-col items-center gap-6 mt-10 text-center md:flex-row md:gap-10 md:text-left">
+            <h1 className="text-2xl font-extrabold uppercase md:text-3xl text-blue-12">
               Je Pratique :
             </h1>
 
-            <div className="flex flex-wrap justify-center md:justify-start gap-6">
+            <div className="flex flex-wrap justify-center gap-6 md:justify-start">
               {sportsList.map((sport, index) => (
                 <div
                   key={index}
-                  className="bg-white shadow-lg rounded-lg py-4 px-6 flex items-center space-x-4 hover:scale-105 transition-transform duration-300 w-full md:w-auto"
+                  className="flex items-center w-full px-6 py-4 space-x-4 transition-transform duration-300 border rounded-lg shadow-lg bg-blue-2 border-blue-6 hover:scale-105 md:w-auto"
                 >
                   <div className="max-w-2/3">
-                    <h2 className="text-lg md:text-xl font-bold text-gray-800">
+                    <h2 className="text-lg font-bold text-blue-12 md:text-xl">
                       {sport}
                     </h2>
                   </div>

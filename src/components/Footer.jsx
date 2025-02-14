@@ -5,20 +5,22 @@ import signature from "../assets/Vincent-Tenret-signature.png";
 const Footer = () => {
   return (
     <>
-      <div className="flex justify-center items-center h-20 bg-gray-800 text-white">
-        <div className="uppercase flex mr-6 font-bold">Suivez moi sur :</div>
-        <Facebook className="w-8 h-8 mr-6 text-white" />
-        <Instagram className="w-8 h-8 text-white" />
+      {/* 🔹 Section Réseaux Sociaux */}
+      <div className="flex items-center justify-center h-20 text-white bg-blue-9">
+        <div className="flex mr-6 font-bold uppercase">Suivez-moi sur :</div>
+        <Facebook className="w-8 h-8 mr-6 text-white transition hover:text-blue-2" />
+        <Instagram className="w-8 h-8 text-white transition hover:text-blue-2" />
       </div>
 
-      <div className="flex justify-center items-center bg-gray-200 text-gray-800 py-4 h-auto">
+      {/* 🔹 Section Informations */}
+      <div className="flex items-center justify-center h-auto py-8 text-blue-12 bg-blue-2">
         <MaxWidthWrapper>
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-8 mt-8 md:mt-1">
+          <div className="flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0 md:space-x-8">
             <img src={signature} alt="Vincent Tenret" className="h-12" />
 
-            <div className="hidden md:block w-[1px] h-16 bg-black/30 md:h-24 md:w-[1px]"></div>
+            <div className="hidden md:block w-[1px] h-16 bg-blue-6 md:h-24 md:w-[1px]"></div>
 
-            <p className="w-full md:w-2/3 px-4 text-sm  md:text-left text-justify">
+            <p className="w-full px-4 text-sm text-justify md:w-2/3 md:text-left text-blue-11">
               Votre coach sportif à Genève - Que vous soyez débutant ou athlète
               confirmé, je vous propose un coaching sportif sur mesure, adapté à
               votre niveau, vos objectifs et votre emploi du temps. Passionné de
@@ -32,9 +34,10 @@ const Footer = () => {
         </MaxWidthWrapper>
       </div>
 
-      <div className="flex justify-center text-center items-center h-auto bg-gray-100 text-gray-800">
+      {/* 🔹 Section Mentions Légales */}
+      <div className="flex items-center justify-center h-auto text-center text-blue-12 bg-blue-1">
         <MaxWidthWrapper>
-          <p className="text-sm py-4">
+          <p className="py-4 text-sm">
             Coach Vincent | Mentions légales | Conception et réalisation : Ronan
             Kervella
           </p>

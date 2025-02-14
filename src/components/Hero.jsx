@@ -6,13 +6,17 @@ const Hero = () => {
     <>
       <MaxWidthWrapper>
         <div>
-          <img src={heroPicture} alt="trail picture" className=" mx-auto" />
+          <img
+            src={heroPicture}
+            alt="trail picture"
+            className="mx-auto rounded-lg shadow-lg"
+          />
         </div>
 
-        <h1 className="text-center text-3xl mt-10 uppercase font-extrabold">
+        <h1 className="mt-10 text-3xl font-extrabold text-center uppercase text-blue-12">
           Vincent Tenret, coach sportif sur la région Genevoise.
         </h1>
-        <p className="text-center text-xl mt-6 font-light">
+        <p className="mt-6 text-xl font-light text-center text-blue-11">
           Vincent organise pour vous un entraînement sur mesure qui s’adapte à
           votre condition physique, votre emploi du temps et vos objectifs pour
           des résultats optimaux.

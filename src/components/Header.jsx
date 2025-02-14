@@ -13,10 +13,10 @@ const NAV_LINKS = [
 
 const Header = () => {
   return (
-    <div className="sticky inset-x-0 top-0 z-50 header-border bg-background">
+    <div className="sticky inset-x-0 top-0 z-50 bg-background header-border">
       <MaxWidthWrapper>
         <header className="flex items-center justify-between py-4">
-          <a href="/" className="text-2xl font-bold text-orange-11">
+          <a href="/" className="text-2xl font-bold text-blue-12">
             <img src={logo} alt="Vincent Tenret Logo" className="w-12 h-12" />
           </a>
 
@@ -33,7 +33,10 @@ const Header = () => {
 
 //* Composant réutilisable pour les liens
 const HeaderLink = ({ name, href }) => (
-  <Link to={href} className="font-bold text-gray-700 uppercase">
+  <Link
+    to={href}
+    className="font-bold uppercase transition text-blue-12 hover:text-blue-9"
+  >
     {name}
   </Link>
 );

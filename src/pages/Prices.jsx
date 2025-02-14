@@ -41,51 +41,68 @@ const Prices = () => {
 
   return (
     <>
-      <div className="w-full p-16 text-center bg-blue-100">
-        <h1 className="text-4xl font-bold text-gray-900 uppercase">
+      {/* 🔹 Section Titre */}
+      <div className="w-full p-16 text-center bg-blue-2">
+        <h1 className="text-4xl font-extrabold uppercase text-blue-12">
           Coaching sportif à Genève
         </h1>
       </div>
+
       <MaxWidthWrapper>
         <section className="py-16">
-          <h2 className="mb-8 text-2xl font-bold text-gray-800">Tarifs</h2>
+          {/* 🔹 Sous-titre */}
+          <h2 className="mb-8 text-2xl font-bold text-center text-blue-11">
+            Mes Tarifs
+          </h2>
+
+          {/* 🔹 Grille des Tarifs */}
           <div className="grid grid-cols-1 gap-8 mb-4 md:grid-cols-3">
             {prices.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-start p-6 bg-white rounded-lg shadow-md"
+                className="flex flex-col items-start p-6 transition-transform duration-300 border rounded-lg shadow-md bg-blue-1 border-blue-6 hover:scale-105"
               >
                 <div className="flex items-center mx-auto mb-4">
                   <FontAwesomeIcon
                     icon={item.icon}
                     size="2x"
-                    className="mr-3 text-blue-500 "
+                    className="mr-3 text-blue-9"
                   />
                 </div>
-                <h3 className="mb-4 text-xl font-semibold text-gray-900">
+                <h3 className="mb-4 text-xl font-semibold text-blue-12">
                   {item.title}
                 </h3>
-                <ul className="mb-4 space-y-2 text-sm text-gray-700">
+                <ul className="mb-4 space-y-2 text-sm text-blue-11">
                   {item.description.map((point, idx) => (
                     <li key={idx} className="flex items-start">
-                      <span className="mr-2 text-blue-500">🔹</span>
+                      <span className="mr-2 text-blue-9">🔹</span>
                       <span className="leading-relaxed">{point}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="mt-auto text-lg font-bold text-blue-600">
+                <div className="mt-auto text-lg font-bold text-blue-10">
                   {item.price}
                 </div>
               </div>
             ))}
           </div>
-          <h2>
-            🎯 Pourquoi choisir ces formules ? ✅ Un coaching adapté à ton
-            emploi du temps et ton niveau ✅ Un suivi sur mesure pour progresser
-            efficacement ✅ Un entraînement motivant et structuré, que ce soit
-            en solo ou chez toi 👉 Prêt à te dépasser ? Réserve ta séance dès
-            maintenant ! 💪🔥
-          </h2>
+
+          {/* 🔹 Section Arguments */}
+          <div className="p-6 mt-12 text-center rounded-lg shadow-sm bg-blue-2">
+            <h2 className="text-lg font-semibold text-blue-12">
+              🎯 Pourquoi choisir ces formules ?
+            </h2>
+            <p className="mt-4 text-blue-11">
+              ✅ Un coaching adapté à ton emploi du temps et ton niveau
+              <br />
+              ✅ Un suivi sur mesure pour progresser efficacement
+              <br />
+              ✅ Un entraînement motivant et structuré, que ce soit en solo ou
+              chez toi
+              <br />
+              👉 Prêt à te dépasser ? Réserve ta séance dès maintenant ! 💪🔥
+            </p>
+          </div>
         </section>
       </MaxWidthWrapper>
     </>

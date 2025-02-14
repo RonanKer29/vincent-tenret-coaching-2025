@@ -12,42 +12,46 @@ import pic3 from "../assets/trail2.jpg";
 
 const Testimonials = () => {
   return (
-    <MaxWidthWrapper>
-      <h1 className="uppercase text-center">Témoignages</h1>
-      <Carousel className="mt-10 mb-20 mx-auto">
-        <CarouselContent>
-          <CarouselItem className="flex justify-center">
-            <div className="w-[400px] h-[250px] md:w-[600px] md:h-[350px] lg:w-[800px] lg:h-[450px] overflow-hidden rounded-lg">
-              <img
-                src={pic1}
-                alt="Trail"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </CarouselItem>
-          <CarouselItem className="flex justify-center">
-            <div className="w-[400px] h-[250px] md:w-[600px] md:h-[350px] lg:w-[800px] lg:h-[450px] overflow-hidden rounded-lg">
-              <img
-                src={pic2}
-                alt="Trail"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </CarouselItem>
-          <CarouselItem className="flex justify-center">
-            <div className="w-[400px] h-[250px] md:w-[600px] md:h-[350px] lg:w-[800px] lg:h-[450px] overflow-hidden rounded-lg">
-              <img
-                src={pic3}
-                alt="Trail"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel>
-    </MaxWidthWrapper>
+    <div className="py-16 bg-blue-1">
+      <MaxWidthWrapper>
+        <h1 className="text-3xl font-extrabold text-center uppercase text-blue-12">
+          Témoignages
+        </h1>
+        <Carousel className="mx-auto mt-10 mb-20">
+          <CarouselContent>
+            <CarouselItem className="flex justify-center">
+              <div className="w-[400px] h-[250px] md:w-[600px] md:h-[350px] lg:w-[800px] lg:h-[450px] overflow-hidden rounded-lg border border-blue-6 shadow-lg">
+                <img
+                  src={pic1}
+                  alt="Trail"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </CarouselItem>
+            <CarouselItem className="flex justify-center">
+              <div className="w-[400px] h-[250px] md:w-[600px] md:h-[350px] lg:w-[800px] lg:h-[450px] overflow-hidden rounded-lg border border-blue-6 shadow-lg">
+                <img
+                  src={pic2}
+                  alt="Trail"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </CarouselItem>
+            <CarouselItem className="flex justify-center">
+              <div className="w-[400px] h-[250px] md:w-[600px] md:h-[350px] lg:w-[800px] lg:h-[450px] overflow-hidden rounded-lg border border-blue-6 shadow-lg">
+                <img
+                  src={pic3}
+                  alt="Trail"
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </MaxWidthWrapper>
+    </div>
   );
 };
 
