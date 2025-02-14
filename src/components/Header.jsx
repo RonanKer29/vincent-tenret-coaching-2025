@@ -2,7 +2,7 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 import logo from "../assets/logoVT2025-2.png";
 import { Link } from "react-router-dom";
 
-// 📌 Définition des liens de navigation
+// Définition des liens de navigation
 const NAV_LINKS = [
   { name: "ACCUEIL", href: "/" },
   { name: "QUI SUIS-JE", href: "/about" },
@@ -13,10 +13,10 @@ const NAV_LINKS = [
 
 const Header = () => {
   return (
-    <div className="sticky inset-x-0 top-0 z-50 bg-white shadow-md">
+    <div className="sticky inset-x-0 top-0 z-50 header-border bg-background">
       <MaxWidthWrapper>
         <header className="flex items-center justify-between py-4">
-          <a href="/" className="text-2xl font-bold text-brand">
+          <a href="/" className="text-2xl font-bold text-orange-11">
             <img src={logo} alt="Vincent Tenret Logo" className="w-12 h-12" />
           </a>
 
@@ -33,7 +33,14 @@ const Header = () => {
 
 //* Composant réutilisable pour les liens
 const HeaderLink = ({ name, href }) => (
+<<<<<<< HEAD
   <Link to={href} className="font-bold text-gray-700 uppercase">
+=======
+  <Link
+    to={href}
+    className="font-bold uppercase transition text-orange-11 hover:text-orange-10"
+  >
+>>>>>>> 47cb1d2 (morning work)
     {name}
   </Link>
 );

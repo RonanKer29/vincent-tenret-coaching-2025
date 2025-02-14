@@ -2,13 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  /* border: 1px solid red; */
+@layer base {
+  /* Fond et texte général */
+  body {
+    @apply bg-background text-orange-11;
+  }
 }
 
-@layer base {
-  :root {
-    --radius: 0.5rem
+@layer components {
+  /* 📌 Boutons */
+  .btn-primary {
+    @apply px-4 py-2 font-semibold text-white transition duration-200 rounded-lg shadow-md bg-orange-9 hover:bg-orange-10;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 font-semibold transition duration-200 rounded-lg shadow-sm bg-orange-4 text-orange-12 hover:bg-orange-5;
+  }
+
+  /* 📌 Bordures */
+  .border-custom {
+    @apply border border-border;
+  }
+
+  .border-strong {
+    @apply border-2 border-orange-9;
+  }
+
+  /* 📌 Header */
+  .header-border {
+    @apply border-b border-border;
+  }
+
+  /* 📌 Textes */
+  .text-primary {
+    @apply text-orange-11;
+  }
+
+  .text-accent {
+    @apply text-orange-9;
   }
 }

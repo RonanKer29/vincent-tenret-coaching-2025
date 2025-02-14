@@ -3,9 +3,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+<<<<<<< HEAD
 import Prices from "./pages/Prices";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+=======
+import "./index.css";
+>>>>>>> 47cb1d2 (morning work)
 
 const App = () => {
   return (
