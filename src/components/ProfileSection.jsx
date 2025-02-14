@@ -72,7 +72,7 @@ const ProfileSection = () => {
   ];
 
   return (
-    <div className="py-16 bg-blue-1">
+    <div className="pt-16 bg-blue-1">
       <MaxWidthWrapper>
         {/* 🔹 Présentation avec Cards */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
