@@ -6,40 +6,67 @@ const Footer = () => {
   return (
     <>
       {/* 🔹 Section Réseaux Sociaux */}
-      <div className="flex items-center justify-center h-20 text-white bg-blue-9">
-        <div className="flex mr-6 font-bold uppercase">Suivez-moi sur :</div>
-        <Facebook className="w-8 h-8 mr-6 text-white transition hover:text-blue-2" />
-        <Instagram className="w-8 h-8 text-white transition hover:text-blue-2" />
+      <div className="flex flex-col items-center justify-center h-24 text-white bg-blue-9">
+        <span className="mb-2 text-lg font-bold uppercase">
+          Suivez-moi sur :
+        </span>
+        <div className="flex space-x-6">
+          <Facebook className="w-8 h-8 transition cursor-pointer hover:text-blue-2" />
+          <Instagram className="w-8 h-8 transition cursor-pointer hover:text-blue-2" />
+        </div>
       </div>
 
       {/* 🔹 Section Informations */}
-      <div className="flex items-center justify-center h-auto py-8 text-blue-12 bg-blue-2">
+      <div className="py-12 bg-blue-2 text-blue-12">
         <MaxWidthWrapper>
-          <div className="flex flex-col items-center justify-between space-y-6 md:flex-row md:space-y-0 md:space-x-8">
-            <img src={signature} alt="Vincent Tenret" className="h-12" />
+          <div className="flex flex-col items-center md:flex-row md:justify-between md:space-x-8">
+            {/* 🔹 Signature */}
+            <img
+              src={signature}
+              alt="Vincent Tenret"
+              className="mb-6 h-14 md:mb-0"
+            />
 
-            <div className="hidden md:block w-[1px] h-16 bg-blue-6 md:h-24 md:w-[1px]"></div>
+            {/* 🔹 Séparateur Vertical */}
+            <div className="hidden md:block w-[2px] h-20 bg-blue-6"></div>
 
-            <p className="w-full px-4 text-sm text-justify md:w-2/3 md:text-left text-blue-11">
-              Votre coach sportif à Genève - Que vous soyez débutant ou athlète
-              confirmé, je vous propose un coaching sportif sur mesure, adapté à
-              votre niveau, vos objectifs et votre emploi du temps. Passionné de
-              montagne et sportif de haut niveau en Trail running et ski
-              alpinisme, j’accompagne mes clients depuis plus de 10 ans vers
-              leurs réussites sportives et personnelles. 🚀 Ensemble, atteignons
-              vos objectifs avec motivation et bienveillance. 📩 Contactez-moi
-              dès aujourd’hui pour un accompagnement personnalisé !
-            </p>
+            {/* 🔹 Texte d'info */}
+            <div className="max-w-2xl text-sm leading-relaxed text-center md:text-left text-blue-11">
+              <p>
+                <strong>Votre coach sportif à Genève</strong> - Que vous soyez{" "}
+                <strong>débutant</strong> ou <strong>athlète confirmé</strong>,
+                je vous propose un <strong>coaching sportif sur mesure</strong>,
+                adapté à votre niveau, vos objectifs et votre emploi du temps.
+              </p>
+              <p className="mt-4">
+                Passionné de montagne et <strong>sportif de haut niveau</strong>{" "}
+                en <strong>Trail running</strong> et{" "}
+                <strong>ski alpinisme</strong>, j’accompagne mes clients depuis
+                plus de <strong>10 ans</strong> vers leurs réussites sportives
+                et personnelles. 🚀
+              </p>
+              <p className="mt-4 font-semibold text-blue-12">
+                Ensemble, atteignons vos objectifs avec{" "}
+                <strong>motivation</strong> et <strong>bienveillance</strong>.
+              </p>
+              <p className="mt-4 font-semibold text-blue-10">
+                📩 Contactez-moi dès aujourd’hui pour un{" "}
+                <strong>accompagnement personnalisé</strong> !
+              </p>
+            </div>
           </div>
         </MaxWidthWrapper>
       </div>
 
       {/* 🔹 Section Mentions Légales */}
-      <div className="flex items-center justify-center h-auto text-center text-blue-12 bg-blue-1">
+      <div className="py-4 text-sm text-center bg-blue-1 text-blue-12">
         <MaxWidthWrapper>
-          <p className="py-4 text-sm">
-            Coach Vincent | Mentions légales | Conception et réalisation : Ronan
-            Kervella
+          <p>
+            <strong>Coach Vincent</strong> |{" "}
+            <a href="#" className="hover:underline">
+              Mentions légales
+            </a>{" "}
+            | Conception et réalisation : <strong>Ronan Kervella</strong>
           </p>
         </MaxWidthWrapper>
       </div>
