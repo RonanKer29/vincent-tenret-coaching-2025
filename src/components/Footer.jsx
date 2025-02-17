@@ -54,8 +54,8 @@ const Footer = () => {
                 📩 Contactez-moi dès aujourd’hui pour un{" "}
                 <strong>accompagnement personnalisé</strong> !
               </p>
-              <Button className="mt-8 " variant={"default"}>
-                Contactez-moi
+              <Button className="px-6 py-4 mt-6 text-lg font-semibold text-white transition bg-blue-9 hover:bg-blue-10 rounded-xl">
+                📩 Me contacter
               </Button>
             </div>
           </div>

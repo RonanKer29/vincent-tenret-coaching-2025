@@ -1,5 +1,6 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import trailPic from "@/assets/trail.png";
+import backgroundImage from "@/assets/dents-midi.jpg";
 import ProfileSection from "@/components/ProfileSection";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -10,9 +11,9 @@ const About = () => {
       {/* 🔹 Section d'introduction immersive */}
       <div className="relative bg-gray-100">
         {/* Image en arrière-plan */}
-        <div className="absolute inset-0 w-full h-full">
+        <div className="absolute md:block hidden inset-0 w-[110%] h-full left-[-5%]">
           <img
-            src={trailPic}
+            src={backgroundImage}
             alt="photo trail"
             className="object-cover w-full h-full opacity-20"
           />
@@ -119,7 +120,7 @@ const About = () => {
               <strong>Contactez-moi dès aujourd’hui</strong> pour un programme
               adapté et un suivi efficace.
             </p>
-            <Button className="px-6 py-3 mt-6 text-lg font-semibold text-white transition bg-blue-9 hover:bg-blue-10 rounded-xl">
+            <Button className="px-6 py-4 mt-6 text-lg font-semibold text-white transition bg-blue-9 hover:bg-blue-10 rounded-xl">
               📩 Me contacter
             </Button>
           </div>

@@ -1,7 +1,8 @@
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import logo from "../assets/logoVT2025-2.png";
+import logo from "../assets/logoVT.png";
 import { Link } from "react-router-dom";
 import MobileNavSheet from "./MobileNavSheet";
+import { useState, useEffect } from "react";
 
 // Définition des liens de navigation
 const NAV_LINKS = [
@@ -13,23 +14,42 @@ const NAV_LINKS = [
 ];
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Effet pour changer le header au scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="sticky inset-x-0 top-0 z-50 bg-blue-2 header-border">
+    <div
+      className={`sticky inset-x-0 top-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/80 shadow-lg backdrop-blur-md" : "bg-transparent"
+      }`}
+    >
       <MaxWidthWrapper>
         <header className="flex items-center justify-between py-4">
           {/* Logo */}
-          <a href="/" className="text-2xl font-bold text-blue-12">
-            <img src={logo} alt="Vincent Tenret Logo" className="w-12 h-12" />
-          </a>
+          <Link to="/" className="flex items-center">
+            <img
+              src={logo}
+              alt="Vincent Tenret Logo"
+              className="w-16 h-16 transition-transform duration-300"
+            />
+          </Link>
 
-          {/* Liens pour les grands écrans */}
+          {/* Navigation Desktop */}
           <nav className="hidden space-x-6 md:flex">
             {NAV_LINKS.map(({ name, href }) => (
               <HeaderLink key={name} name={name} href={href} />
             ))}
           </nav>
 
-          {/* Menu burger pour mobile */}
+          {/* Menu Burger Mobile */}
           <div className="md:hidden">
             <MobileNavSheet navLinks={NAV_LINKS} />
           </div>
@@ -43,7 +63,7 @@ const Header = () => {
 const HeaderLink = ({ name, href }) => (
   <Link
     to={href}
-    className="font-bold uppercase transition text-blue-12 hover:text-blue-9"
+    className="font-semibold tracking-wide uppercase transition duration-300 text-blue-12 hover:text-blue-9 hover:underline underline-offset-4"
   >
     {name}
   </Link>
