@@ -1,6 +1,7 @@
 import { Facebook, Instagram } from "lucide-react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import signature from "../assets/Vincent-Tenret-signature.png";
+import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
@@ -43,7 +44,7 @@ const Footer = () => {
                 en <strong>Trail running</strong> et{" "}
                 <strong>ski alpinisme</strong>, j’accompagne mes clients depuis
                 plus de <strong>10 ans</strong> vers leurs réussites sportives
-                et personnelles. 🚀
+                et personnelles.
               </p>
               <p className="mt-4 font-semibold text-blue-12">
                 Ensemble, atteignons vos objectifs avec{" "}
@@ -53,6 +54,9 @@ const Footer = () => {
                 📩 Contactez-moi dès aujourd’hui pour un{" "}
                 <strong>accompagnement personnalisé</strong> !
               </p>
+              <Button className="mt-8 " variant={"default"}>
+                Contactez-moi
+              </Button>
             </div>
           </div>
         </MaxWidthWrapper>

@@ -119,12 +119,12 @@ const ProfileSection = () => {
         {/* 🔹 Contenu affiché selon la section active */}
         <div className="mt-8">
           {activeSection === "experiences" && (
-            <Accordion type="single" collapsible className="mt-6">
+            <Accordion type="single" collapsible className="mt-8">
               {races.map((race, index) => (
                 <AccordionItem
                   key={index}
                   value={`race-${index}`}
-                  className="mb-2 rounded-lg shadow-md border-blue-6 bg-blue-2"
+                  className="mb-2 shadow-md rounded-xl border-blue-6 bg-blue-2"
                 >
                   <AccordionTrigger className="p-4 text-lg font-bold text-blue-12">
                     {race.title}
@@ -138,11 +138,11 @@ const ProfileSection = () => {
           )}
 
           {activeSection === "sports" && (
-            <div className="flex flex-wrap justify-center gap-4 mt-6">
+            <div className="flex flex-wrap justify-center gap-4 mt-12">
               {sportsList.map((sport, index) => (
                 <Badge
                   key={index}
-                  className="px-4 py-2 text-lg border shadow-sm bg-blue-2 text-blue-12 border-blue-6"
+                  className="px-4 py-2 text-lg border shadow-sm rounded-xl bg-blue-2 text-blue-12 border-blue-6"
                 >
                   {sport}
                 </Badge>
