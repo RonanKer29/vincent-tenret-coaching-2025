@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <>
       {/* 🔹 Section Réseaux Sociaux */}
-      <div className="flex flex-col items-center justify-center h-24 text-white bg-blue-9">
+      <div className="flex flex-col items-center justify-center h-24 text-white bg-blue-8">
         <span className="mb-2 text-lg font-bold uppercase">
           Suivez-moi sur :
         </span>
@@ -67,7 +67,7 @@ const Footer = () => {
         <MaxWidthWrapper>
           <p>
             <strong>Coach Vincent</strong> |{" "}
-            <a href="#" className="hover:underline">
+            <a href="/contact" className="hover:underline">
               Mentions légales
             </a>{" "}
             | Conception et réalisation : <strong>Ronan Kervella</strong>
