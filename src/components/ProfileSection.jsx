@@ -101,7 +101,7 @@ const ProfileSection = () => {
         </div>
         <div className="w-full my-24 border border-blue-4"></div>
         {/* 🔹 Boutons pour basculer entre Expériences Sportives & Sports Pratiqués */}
-        <div className="flex justify-center mt-16 space-x-4">
+        <div className="flex justify-center mt-16 space-x-2">
           <Button
             variant={activeSection === "experiences" ? "default" : "outline"}
             onClick={() => setActiveSection("experiences")}
