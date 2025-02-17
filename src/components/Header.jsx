@@ -14,7 +14,7 @@ const NAV_LINKS = [
 
 const Header = () => {
   return (
-    <div className="sticky inset-x-0 top-0 z-50 bg-background header-border">
+    <div className="sticky inset-x-0 top-0 z-50 bg-blue-2 header-border">
       <MaxWidthWrapper>
         <header className="flex items-center justify-between py-4">
           {/* Logo */}

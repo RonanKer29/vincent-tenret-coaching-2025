@@ -60,7 +60,7 @@ const Prices = () => {
             {prices.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-start p-6 transition-transform duration-300 border rounded-lg shadow-md bg-blue-1 border-blue-6 hover:scale-105"
+                className="flex flex-col items-start p-6 transition-transform duration-300 border rounded-lg shadow-md bg-blue-1 border-blue-6 "
               >
                 <div className="flex items-center mx-auto mb-4">
                   <FontAwesomeIcon
