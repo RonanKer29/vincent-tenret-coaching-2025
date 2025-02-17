@@ -51,7 +51,7 @@ const Footer = () => {
                 <strong>motivation</strong> et <strong>bienveillance</strong>.
               </p>
               <p className="mt-4 font-semibold text-blue-10">
-                📩 Contactez-moi dès aujourd’hui pour un{" "}
+                Contactez-moi dès aujourd’hui pour un{" "}
                 <strong>accompagnement personnalisé</strong> !
               </p>
               <Button className="px-6 py-4 mt-6 text-lg font-semibold text-white transition bg-blue-9 hover:bg-blue-10 rounded-xl">
