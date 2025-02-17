@@ -55,7 +55,9 @@ const Footer = () => {
                 <strong>accompagnement personnalisé</strong> !
               </p>
               <Button className="px-6 py-4 mt-6 text-lg font-semibold text-white transition bg-blue-9 hover:bg-blue-10 rounded-xl">
-                📩 Me contacter
+                <a href="/contact" className="">
+                  📩 Me contacter
+                </a>
               </Button>
             </div>
           </div>
@@ -67,7 +69,7 @@ const Footer = () => {
         <MaxWidthWrapper>
           <p>
             <strong>Coach Vincent</strong> |{" "}
-            <a href="/contact" className="hover:underline">
+            <a href="/" className="hover:underline">
               Mentions légales
             </a>{" "}
             | Conception et réalisation : <strong>Ronan Kervella</strong>

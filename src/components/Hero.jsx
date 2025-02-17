@@ -30,7 +30,7 @@ const Hero = () => {
           <div className="mt-6">
             <Link
               to="/contact"
-              className="px-6 py-3 text-lg font-bold text-white uppercase transition rounded-lg shadow-md bg-blue-12 hover:bg-blue-9"
+              className="px-6 py-3 text-lg font-bold text-white uppercase transition shadow-md rounded-xl bg-blue-12 hover:bg-blue-9"
             >
               Prendre rendez-vous
             </Link>

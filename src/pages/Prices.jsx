@@ -47,7 +47,7 @@ const Prices = () => {
 
       {/* 🔹 Contenu principal */}
       <MaxWidthWrapper>
-        <div className="relative w-full px-8 py-12 mx-auto mb-24 rounded-lg shadow-xl bg-white/90 backdrop-blur-md">
+        <div className="relative w-full px-8 py-12 mx-auto mb-24 shadow-xl rounded-xl bg-white/90 backdrop-blur-md">
           <h1 className="text-4xl font-extrabold uppercase text-blue-12">
             Coaching sportif à Genève
           </h1>
@@ -128,7 +128,7 @@ const Prices = () => {
           <div className="mt-8">
             <Link
               to="/contact"
-              className="px-6 py-3 text-lg font-bold text-white uppercase transition rounded-lg shadow-md bg-blue-12 hover:bg-blue-9"
+              className="px-6 py-3 text-lg font-bold text-white uppercase transition shadow-md rounded-xl bg-blue-12 hover:bg-blue-9"
             >
               Réserve ta séance
             </Link>
