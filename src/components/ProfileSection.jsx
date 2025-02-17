@@ -89,7 +89,7 @@ const ProfileSection = () => {
                 href="https://itra.run/api/RunnerSpace/GetRunnerSpace?memberString=EZZf%2BXnR4ENACH1Y5KthaQ%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-6 py-2 mt-4 font-semibold text-white transition rounded-lg bg-blue-9 hover:bg-blue-10"
+                className="inline-block px-6 py-2 mt-4 font-semibold text-white transition rounded-xl bg-green-itra hover:bg-green-itra/80"
               >
                 Voir mon profil ITRA
               </a>

@@ -1,65 +1,132 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import trailPic from "@/assets/trail.png";
 import ProfileSection from "@/components/ProfileSection";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <>
-      <div className="py-16 bg-blue-1">
+      {/* 🔹 Section d'introduction immersive */}
+      <div className="relative bg-gray-100">
+        {/* Image en arrière-plan */}
+        <div className="absolute inset-0 w-full h-full">
+          <img
+            src={trailPic}
+            alt="photo trail"
+            className="object-cover w-full h-full opacity-20"
+          />
+        </div>
+
+        {/* Contenu principal */}
         <MaxWidthWrapper>
-          <div className="grid items-center grid-cols-1 gap-6 p-4 md:p-6 md:grid-cols-2">
-            {/* 🔹 Image responsive */}
-            <img
+          <div className="relative grid items-center grid-cols-1 gap-10 py-24 md:grid-cols-2">
+            {/* 🔹 Texte impactant */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="z-10 flex flex-col justify-center text-center md:text-left"
+            >
+              <h1 className="text-4xl font-extrabold leading-tight text-gray-900 md:text-5xl">
+                Transformez votre entraînement avec <br />
+                <strong>un coaching expert et sur-mesure !</strong>
+              </h1>
+              <p className="mt-6 text-lg leading-relaxed text-gray-700">
+                Avec <strong>plus de 10 ans d'expérience</strong>, j’accompagne
+                <strong> sportifs débutants et confirmés</strong> vers
+                <strong> leurs objectifs de performance et bien-être</strong>.
+                Spécialiste du{" "}
+                <strong>Trail, Ultra Trail et Ski alpinisme</strong>, je vous
+                propose un suivi personnalisé
+                <strong> adapté à votre niveau et à votre quotidien</strong>.
+              </p>
+            </motion.div>
+
+            {/* 🔹 Image principale */}
+            <motion.img
               src={trailPic}
               alt="photo trail"
-              className="w-full h-auto md:h-full max-h-[300px] md:max-h-[400px] object-cover rounded-lg border border-blue-6 shadow-md"
+              className="relative z-10 object-cover w-full shadow-xl rounded-xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
             />
+          </div>
+        </MaxWidthWrapper>
+      </div>
 
-            {/* 🔹 Texte bien aligné et centré sur mobile */}
-            <div className="flex flex-col justify-center text-center md:text-left">
-              <p className="px-4 text-justify text-blue-12 md:px-6">
-                <strong>
-                  Vincent Tenret, coach sportif et préparateur physique
-                </strong>
-                <br />
-                <br />
-                Passionné de montagne et de sport, je suis coach sportif et
-                préparateur physique à Genève depuis plus de 10 ans. Spécialiste
-                du{" "}
-                <strong>
-                  Trail running, de l’Ultra Trail et du ski alpinisme
-                </strong>
-                , j’accompagne des sportifs de tous niveaux avec un{" "}
-                <strong>coaching sur mesure</strong>, adapté à votre profil, vos
-                objectifs et votre mode de vie.
-                <br />
-                <br />
-                📍 <strong>Coaching individuel et collectif</strong> à Genève,
-                en salle, en extérieur ou à domicile.
-                <br />
-                🏔 <strong>Plans d’entraînement personnalisés</strong>, de la
-                remise en forme à la préparation aux compétitions.
-                <br />⛰ <strong>Stages en montagne</strong> : Trail, Ultra
-                Trail, Randonnée active, en France, Suisse et Italie.
-                <br />
-                <br />
+      {/* 🔹 Présentation détaillée en structure fluide */}
+      <MaxWidthWrapper>
+        <div className="py-16 text-center md:text-left">
+          <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
+            Pourquoi choisir mon accompagnement ?
+          </h2>
+
+          {/* Points forts organisés */}
+          <div className="grid gap-6 mt-8 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold text-blue-9">
+                🏆 Expertise & Personnalisation
+              </h3>
+              <p className="mt-2 text-gray-700">
+                Chaque programme est conçu sur mesure en fonction de{" "}
+                <strong>vos besoins spécifiques</strong> : remise en forme,
+                préparation à une course, renforcement musculaire, endurance.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-blue-9">
+                🔥 Des résultats concrets
+              </h3>
+              <p className="mt-2 text-gray-700">
+                Progression mesurable, performances améliorées,
+                <strong> un encadrement précis et motivant</strong>
+                pour vous aider à{" "}
+                <strong>atteindre vos objectifs efficacement</strong>.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-blue-9">
+                ⛰️ Stages et Coaching Outdoor
+              </h3>
+              <p className="mt-2 text-gray-700">
+                Entraînements en extérieur ou en montagne pour une immersion
+                totale dans votre discipline et une expérience unique.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold text-blue-9">
+                📍 Coaching en présentiel et à distance
+              </h3>
+              <p className="mt-2 text-gray-700">
+                <strong>Séances en salle, en extérieur ou en ligne</strong>{" "}
+                selon vos préférences. Un suivi détaillé pour rester motivé où
+                que vous soyez.
               </p>
             </div>
           </div>
 
-          {/* 🔹 Texte sous la section sur mobile, bien centré */}
-          <p className="w-full p-4 text-center md:p-6 md:text-left text-blue-11">
-            Que vous souhaitiez progresser, vous surpasser ou simplement
-            retrouver la forme, je vous guide avec bienveillance et exigence
-            vers votre réussite. Mon objectif ? Vous aider à atteindre le vôtre
-            ! 💪
-            <br />
-            📩 Contactez-moi dès aujourd’hui pour un accompagnement
-            personnalisé.
-          </p>
-        </MaxWidthWrapper>
-      </div>
+          {/* 🔹 CTA Contact */}
+          <div className="mt-20 text-center">
+            <h3 className="text-2xl font-semibold text-gray-900">
+              Prêt à atteindre vos objectifs ?
+            </h3>
+            <p className="mt-3 text-gray-700">
+              <strong>Contactez-moi dès aujourd’hui</strong> pour un programme
+              adapté et un suivi efficace.
+            </p>
+            <Button className="px-6 py-3 mt-6 text-lg font-semibold text-white transition bg-blue-9 hover:bg-blue-10 rounded-xl">
+              📩 Me contacter
+            </Button>
+          </div>
+        </div>
+      </MaxWidthWrapper>
 
+      {/* 🔹 Section Profil */}
       <ProfileSection />
     </>
   );
