@@ -48,24 +48,24 @@ const ProfileSection = () => {
           <Button
             variant={activeSection === "experiences" ? "default" : "outline"}
             onClick={() => setActiveSection("experiences")}
-            className={`px-6 py-2 font-semibold ${
+            className={`px-4 py-2 font-semibold ${
               activeSection === "experiences"
                 ? "bg-blue-700 text-white"
                 : "bg-blue-2 text-gray-900"
             }`}
           >
-            🏆 Expériences Sportives
+            Expériences Sportives
           </Button>
           <Button
             variant={activeSection === "sports" ? "default" : "outline"}
             onClick={() => setActiveSection("sports")}
-            className={`px-6 py-2 font-semibold ${
+            className={`px-4 py-2 font-semibold ${
               activeSection === "sports"
                 ? "bg-blue-700 text-white"
                 : "bg-blue-2 text-gray-900"
             }`}
           >
-            💪 Sports Pratiqués
+            Sports Pratiqués
           </Button>
         </div>
 
