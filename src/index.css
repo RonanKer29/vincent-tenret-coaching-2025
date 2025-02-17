@@ -5,7 +5,23 @@
 @layer base {
   /* Fond et texte général */
   body {
-    @apply bg-background text-text;
+    @apply bg-background text-text font-body; /* Inter pour tout le texte */
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading; /* Oswald pour les titres */
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading; /* Oswald pour les titres */
   }
 }
 

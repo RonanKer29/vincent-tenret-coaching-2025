@@ -1,6 +1,7 @@
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import logo from "../assets/logoVT2025-2.png";
 import { Link } from "react-router-dom";
+import MobileNavSheet from "./MobileNavSheet";
 
 // Définition des liens de navigation
 const NAV_LINKS = [
@@ -16,22 +17,29 @@ const Header = () => {
     <div className="sticky inset-x-0 top-0 z-50 bg-background header-border">
       <MaxWidthWrapper>
         <header className="flex items-center justify-between py-4">
+          {/* Logo */}
           <a href="/" className="text-2xl font-bold text-blue-12">
             <img src={logo} alt="Vincent Tenret Logo" className="w-12 h-12" />
           </a>
 
+          {/* Liens pour les grands écrans */}
           <nav className="hidden space-x-6 md:flex">
             {NAV_LINKS.map(({ name, href }) => (
               <HeaderLink key={name} name={name} href={href} />
             ))}
           </nav>
+
+          {/* Menu burger pour mobile */}
+          <div className="md:hidden">
+            <MobileNavSheet navLinks={NAV_LINKS} />
+          </div>
         </header>
       </MaxWidthWrapper>
     </div>
   );
 };
 
-//* Composant réutilisable pour les liens
+// Composant réutilisable pour les liens
 const HeaderLink = ({ name, href }) => (
   <Link
     to={href}
