@@ -4,8 +4,11 @@
 
 @layer base {
   /* Fond et texte général */
+
   body {
-    @apply bg-background text-text font-body; /* Inter pour tout le texte */
+    @apply bg-background text-text font-body;
+    @apply box-border;
+    /* Inter pour tout le texte */
   }
   h1,
   h2,
@@ -23,6 +26,7 @@
   h6 {
     @apply font-heading; /* Oswald pour les titres */
   }
+  /* Style des boutons de pagination */
 }
 
 @layer components {
@@ -57,4 +61,31 @@
   .text-accent {
     @apply text-blue-9;
   }
+}
+/* Centrer la pagination et lui donner un bon espacement */
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer; /* Espacement entre les ronds */
+}
+
+/* Style des bullets de pagination */
+.custom-pagination .swiper-pagination-bullet {
+  width: 14px; /* Taille des ronds */
+  height: 14px;
+  background-color: #a8c9f8; /* Bleu clair */
+  opacity: 0.6;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Style du bullet actif */
+.custom-pagination .swiper-pagination-bullet-active {
+  background-color: #0072f5; /* Bleu foncé */
+  opacity: 1;
+  transform: scale(1.3); /* Effet d'agrandissement */
+}
+* {
+  /* border: 1px solid red; */
 }
