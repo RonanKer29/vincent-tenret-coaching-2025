@@ -6,9 +6,12 @@ import Header from "./components/Header";
 import Prices from "./pages/Prices";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import useScrollToTop from "./hooks/useScrollToTop"; // Import du hook
 import "./index.css";
 
 const App = () => {
+  useScrollToTop(); // Appel du hook en haut du composant
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
