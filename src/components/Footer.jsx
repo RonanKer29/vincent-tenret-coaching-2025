@@ -40,11 +40,16 @@ const Footer = () => {
                 adapté à votre niveau, vos objectifs et votre emploi du temps.
               </p>
               <p className="mt-4">
-                Passionné de montagne et <strong>sportif de haut niveau</strong>{" "}
-                en <strong>Trail running</strong> et{" "}
-                <strong>ski alpinisme</strong>, j’accompagne mes clients depuis
-                plus de <strong>10 ans</strong> vers leurs réussites sportives
-                et personnelles.
+                Passionné de montagne et pratiquant de{" "}
+                <strong>Trail running</strong> et{" "}
+                <strong>ski de randonnée</strong>, j’ai développé une expertise
+                en{" "}
+                <strong>
+                  préparation physique et entraînement en endurance
+                </strong>
+                . Mon objectif est d’accompagner chacun, qu’il soit sportif
+                aguerri ou en reprise, vers ses propres réussites sportives et
+                personnelles.
               </p>
               <p className="mt-4 font-semibold text-blue-12">
                 Ensemble, atteignons vos objectifs avec{" "}

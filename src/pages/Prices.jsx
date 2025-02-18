@@ -4,8 +4,9 @@ import {
   faPersonRunning,
   faHouse,
   faRankingStar,
+  faChartLine,
+  faMedal,
 } from "@fortawesome/free-solid-svg-icons";
-import backgroundImage from "../assets/cervin.jpg";
 import { Link } from "react-router-dom";
 
 const Prices = () => {
@@ -17,7 +18,7 @@ const Prices = () => {
         "Au programme : course à pied (fractionné, allure spécifique, etc.), renforcement musculaire, assouplissements, yoga et flexibilité.",
         "Un coaching 100% sur mesure, que tu sois débutant ou athlète confirmé !",
       ],
-      price: "80.-/ séance",
+      price: "80.- / séance",
       icon: faPersonRunning,
     },
     {
@@ -31,23 +32,44 @@ const Prices = () => {
       icon: faHouse,
     },
     {
+      title: "Formule Basic",
+      description: [
+        "Un programme adapté aux débutants ou à ceux qui reprennent le sport après une pause.",
+        "Plan d'entraînement personnalisé en fonction de votre niveau et de votre rythme de vie.",
+        "Conseils pour structurer votre entraînement et intégrer des séances efficaces.",
+        "Suivi hebdomadaire et ajustements en fonction de vos progrès.",
+      ],
+      price: "250.- / mois",
+      icon: faChartLine,
+    },
+    {
       title: "Formule Race",
       description: [
-        "Un plan d'entraînement 100% personnalisé pour préparer ton prochain défi : Trail, marathon, triathlon, Ultra Trail ou toute autre épreuve d'endurance.",
-        "Programme détaillé avec des séances adaptées à ton niveau et tes objectifs.",
+        "Un plan d'entraînement 100% personnalisé pour préparer votre prochain défi : Trail, marathon, triathlon, Ultra Trail ou autre.",
+        "Programme détaillé avec des séances adaptées à votre niveau et vos objectifs.",
+        "Accompagnement structuré pour optimiser votre progression et atteindre vos performances cibles.",
       ],
       price: "320.- / mois",
       icon: faRankingStar,
+    },
+    {
+      title: "Formule Pro",
+      description: [
+        "Tout ce qui est inclus dans la Formule Race + un accompagnement encore plus poussé.",
+        "Ajustements illimités du programme et suivi régulier selon vos besoins.",
+        "Analyse des séances via Strava et/ou Nolio pour affiner votre progression.",
+        "Stratégie de course et conseils personnalisés pour optimiser vos performances.",
+        "Un test de performance sur piste à Genève pour évaluer vos capacités.",
+      ],
+      price: "440.- / mois",
+      icon: faMedal,
     },
   ];
 
   return (
     <div className="relative flex items-center justify-center w-full min-h-screen text-center bg-blue-3">
-      {/* 🔹 Image en arrière-plan */}
-
-      {/* 🔹 Contenu principal */}
       <MaxWidthWrapper>
-        <div className="relative w-full px-8 py-12 mx-auto mb-24 shadow-xl rounded-xl bg-white/90 backdrop-blur-md">
+        <div className="relative w-full px-8 py-12 mx-auto mb-24 shadow-xl rounded-xl bg-white/90 backdrop-blur-md mt-12">
           <h1 className="text-4xl font-extrabold uppercase text-blue-12">
             Coaching sportif à Genève
           </h1>
@@ -57,11 +79,40 @@ const Prices = () => {
           </p>
 
           {/* 🔹 Grille des Tarifs */}
-          <div className="grid grid-cols-1 gap-8 my-8 md:grid-cols-3">
-            {prices.map((item, index) => (
+          <div className="grid grid-cols-1 gap-8 my-8 md:grid-cols-2">
+            {prices.slice(0, 2).map((item, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center p-6 transition-transform duration-300 border rounded-lg shadow-md bg-blue-1 border-blue-6 "
+                className="flex flex-col items-center p-6 transition-transform duration-300 border rounded-lg shadow-md bg-blue-1 border-blue-6"
+              >
+                <FontAwesomeIcon
+                  icon={item.icon}
+                  size="2x"
+                  className="mb-3 text-blue-9"
+                />
+                <h3 className="mb-4 text-xl font-semibold text-blue-12">
+                  {item.title}
+                </h3>
+                <ul className="mb-4 space-y-2 text-sm text-left text-blue-11">
+                  {item.description.map((point, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="mr-2 text-blue-9">✔</span>
+                      <span className="leading-relaxed">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto text-lg font-bold text-blue-10">
+                  {item.price}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 my-8 md:grid-cols-3">
+            {prices.slice(2, 5).map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center p-6 transition-transform duration-300 border rounded-lg shadow-md bg-blue-1 border-blue-6"
               >
                 <FontAwesomeIcon
                   icon={item.icon}

@@ -1,34 +1,36 @@
-import { Medal, Gauge, Captions } from "lucide-react";
+import { Medal, Gauge, Lightbulb } from "lucide-react";
 import ProfileCard from "./ProfileCard";
 
 const ExperienceSection = () => {
   const experiences = [
     {
-      title: "Expériences",
+      title: "Parcours & Expérience",
       description: [
-        "Plus de 9 ans d’expérience dans le coaching sportif personnel.",
-        "Passionné de sport et de bien-être, Vincent en a fait sa profession depuis 2010.",
-        "Du bien-être physique et mental à la performance, il saura vous accompagner avec bienveillance.",
+        "Passionné de sport et de performance, Vincent pratique la course à pied et le trail depuis plus de 10 ans.",
+        "Il s'est forgé une expertise en préparation physique à travers ses propres défis : ultra-trails, ski de randonnée et entraînements en endurance.",
+        "Aujourd'hui, il met son expérience au service des autres pour les aider à atteindre leurs objectifs, du bien-être à la performance.",
       ],
       icon: Medal,
     },
     {
-      title: "Spécialités",
+      title: "Spécialités & Domaines d’Expertise",
       description: [
-        "Perte de poids",
-        "Renforcement musculaire / Cardio-Training",
-        "Gym douce / Relaxation / Étirement",
-        "Préparation physique personnalisée pour le Trail, marathon et ski de randonnée",
+        "Coaching adapté à tous les niveaux, que vous soyez débutant, en reprise ou sportif confirmé.",
+        "Préparation physique et endurance (Marathon, Ultra-Trail, Ski Rando).",
+        "Renforcement musculaire ciblé pour la performance et la prévention des blessures.",
+        "Travail sur la mobilité, la souplesse et la récupération.",
+        "Conseils alimentaires pour la performance et la récupération.",
       ],
       icon: Gauge,
     },
     {
-      title: "Qualifications",
+      title: "Approche & Méthodologie",
       description: [
-        "Formation nutrition du sportif, équilibre alimentaire et diabète",
-        "Certification méthode Pilates",
+        "Plans d'entraînement personnalisés, adaptés à votre niveau et à vos objectifs.",
+        "Accompagnement progressif et ajustements réguliers en fonction de vos sensations et performances.",
+        "Suivi attentif pour optimiser récupération, motivation et progression.",
       ],
-      icon: Captions,
+      icon: Lightbulb,
     },
   ];
 

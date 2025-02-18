@@ -26,7 +26,7 @@ const Contact = () => {
 
   return (
     <MaxWidthWrapper>
-      <div className="flex flex-col items-center max-w-4xl gap-12 p-10 mx-auto my-20 bg-white border shadow-md rounded-xl border-blue-6 md:flex-row">
+      <div className="flex flex-col items-center max-w-4xl gap-12 p-10 mx-auto my-20 border shadow-md bg-blue-3 rounded-xl border-blue-6 md:flex-row">
         {/* Section gauche : Infos de contact */}
         <div className="w-full md:w-1/2 text-blue-12">
           <h2 className="text-3xl font-bold uppercase">Contact</h2>
@@ -54,7 +54,7 @@ const Contact = () => {
               />
               <div>
                 <h3 className="text-lg font-semibold">Téléphone</h3>
-                <p className="text-blue-11">+41 (0)00 00 00 00</p>
+                <p className="text-blue-11">(+33) 07 82 91 68 84</p>
               </div>
             </div>
 
