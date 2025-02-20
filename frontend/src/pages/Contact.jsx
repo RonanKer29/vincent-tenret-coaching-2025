@@ -35,14 +35,13 @@ const Contact = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
         mode: "cors",
-        credentials: "include",
       });
 
       const data = await res.json();
 
       if (res.ok) {
         alert("Merci pour votre message ! Je vous répondrai bientôt.");
-        setFormData({ name: "", email: "", message: "" }); // Réinitialiser le formulaire
+        setFormData({ name: "", email: "", message: "" });
       } else {
         alert(
           "Erreur : " + (data.error || "Une erreur inconnue s'est produite.")

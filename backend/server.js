@@ -8,23 +8,34 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const app = express();
 
+// Configuration CORS pour autoriser uniquement ton domaine
+const corsOptions = {
+  origin: "https://www.vincenttenret.ch",
+  methods: "POST",
+  allowedHeaders: ["Content-Type"],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cors());
 
 // Clé API SendGrid
+if (!process.env.SENDGRID_API_KEY) {
+  console.error("❌ Erreur: SENDGRID_API_KEY non défini !");
+  process.exit(1); // Arrête le serveur si la clé n'est pas définie
+}
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-console.log(
-  "SENDGRID_API_KEY:",
-  process.env.SENDGRID_API_KEY ? "OK" : "Non défini !"
-);
 
 // **API pour gérer les formulaires de contact**
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: "Tous les champs sont requis." });
+  }
+
   const msg = {
-    to: "info@vincenttenret.ch", // Ton email de réception
-    from: "info@vincenttenret.ch", // Adresse vérifiée sur SendGrid
+    to: "info@vincenttenret.ch",
+    from: "info@vincenttenret.ch",
     subject: `Nouveau message de ${name}`,
     html: `<p><strong>Nom:</strong> ${name}</p>
            <p><strong>Email:</strong> ${email}</p>
@@ -36,7 +47,7 @@ app.post("/api/contact", async (req, res) => {
     await sgMail.send(msg);
     res.status(200).json({ message: "Email envoyé avec succès !" });
   } catch (error) {
-    console.error("Erreur d'envoi :", error.response?.body || error.message);
+    console.error("❌ Erreur d'envoi :", error.response?.body || error.message);
     res.status(500).json({ error: "Erreur lors de l'envoi du message." });
   }
 });
