@@ -18,10 +18,28 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Données envoyées :", formData);
-    alert("Merci pour votre message ! Je vous répondrai bientôt.");
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert("Merci pour votre message ! Je vous répondrai bientôt.");
+        setFormData({ name: "", email: "", message: "" }); // Réinitialiser le formulaire
+      } else {
+        alert("Erreur : " + data.error);
+      }
+    } catch (error) {
+      alert("Une erreur est survenue. Veuillez réessayer plus tard.");
+    }
   };
 
   return (
