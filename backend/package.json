@@ -1,5 +1,5 @@
 {
-  "name": "backend-contact",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,8 +12,8 @@
   "type": "commonjs",
   "dependencies": {
     "@sendgrid/mail": "^8.1.4",
-    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "cors": "^2.8.5"
   }
 }
