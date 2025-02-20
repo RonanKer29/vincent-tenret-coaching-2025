@@ -14,31 +14,45 @@ const Contact = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
+  const API_URL =
+    process.env.NODE_ENV === "production"
+      ? "https://www.vincenttenret.ch/api/contact"
+      : "http://localhost:5000/api/contact";
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/contact", {
+      const res = await fetch(API_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
+        mode: "cors",
+        credentials: "include",
       });
 
       const data = await res.json();
+
       if (res.ok) {
         alert("Merci pour votre message ! Je vous répondrai bientôt.");
         setFormData({ name: "", email: "", message: "" }); // Réinitialiser le formulaire
       } else {
-        alert("Erreur : " + data.error);
+        alert(
+          "Erreur : " + (data.error || "Une erreur inconnue s'est produite.")
+        );
       }
     } catch (error) {
-      alert("Une erreur est survenue. Veuillez réessayer plus tard.");
+      console.error("Erreur d'envoi :", error);
+      alert("Une erreur est survenue. Vérifiez votre connexion et réessayez.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -135,9 +149,10 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="w-full px-4 py-3 font-semibold text-white transition shadow-md rounded-xl bg-blue-9 hover:bg-blue-10"
+            className="w-full px-4 py-3 font-semibold text-white transition shadow-md rounded-xl bg-blue-9 hover:bg-blue-10 disabled:opacity-50"
+            disabled={loading}
           >
-            Envoyer le message
+            {loading ? "Envoi en cours..." : "Envoyer le message"}
           </button>
         </form>
       </div>
