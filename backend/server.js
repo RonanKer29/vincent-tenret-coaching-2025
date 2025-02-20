@@ -8,21 +8,24 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const app = express();
 
-// Configuration CORS pour autoriser uniquement ton domaine
+// Configuration CORS
 const corsOptions = {
   origin: "https://www.vincenttenret.ch",
   methods: "POST",
   allowedHeaders: ["Content-Type"],
 };
-
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Clé API SendGrid
-if (!process.env.SENDGRID_API_KEY) {
-  console.error("❌ Erreur: SENDGRID_API_KEY non défini !");
-  process.exit(1); // Arrête le serveur si la clé n'est pas définie
+// Vérification et configuration de SendGrid
+if (
+  !process.env.SENDGRID_API_KEY ||
+  !process.env.SENDGRID_API_KEY.startsWith("SG.")
+) {
+  console.error("❌ Erreur: Clé API SendGrid invalide !");
+  process.exit(1);
 }
+
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // **API pour gérer les formulaires de contact**
