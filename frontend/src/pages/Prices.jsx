@@ -1,4 +1,4 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import MaxWidthWrapper from "../components/MaxWidthWrapper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPersonRunning,
@@ -69,7 +69,7 @@ const Prices = () => {
   return (
     <div className="relative flex items-center justify-center w-full min-h-screen text-center bg-blue-3">
       <MaxWidthWrapper>
-        <div className="relative w-full px-8 py-12 mx-auto mb-24 shadow-xl rounded-xl bg-white/90 backdrop-blur-md mt-12">
+        <div className="relative w-full px-8 py-12 mx-auto mt-12 mb-24 shadow-xl rounded-xl bg-white/90 backdrop-blur-md">
           <h1 className="text-4xl font-extrabold uppercase text-blue-12">
             Coaching sportif à Genève
           </h1>

@@ -3,7 +3,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from "../components/ui/sheet";
 import { Menu } from "lucide-react"; // Icône burger
 
 const MobileNavSheet = ({ navLinks }) => {

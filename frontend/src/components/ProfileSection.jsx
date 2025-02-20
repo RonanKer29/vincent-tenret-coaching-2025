@@ -2,7 +2,7 @@ import { useState } from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 import ExperienceSection from "./ExperienceSection";
 import RaceItem from "./RaceItem";
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import SportsSection from "./SportsList";
 
 const ProfileSection = () => {

@@ -1,8 +1,8 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import MaxWidthWrapper from "../components/MaxWidthWrapper";
 import trailPic from "@/assets/trail.png";
 import backgroundImage from "@/assets/dents-midi.jpg";
-import ProfileSection from "@/components/ProfileSection";
-import { Button } from "@/components/ui/button";
+import ProfileSection from "../components/ProfileSection";
+import { Button } from "../components/ui/button";
 import { motion } from "framer-motion";
 
 const About = () => {

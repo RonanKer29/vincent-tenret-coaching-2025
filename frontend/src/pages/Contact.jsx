@@ -5,7 +5,7 @@ import {
   faPhone,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import MaxWidthWrapper from "../components/MaxWidthWrapper";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
