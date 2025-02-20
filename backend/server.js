@@ -8,27 +8,27 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const app = express();
 
-// Configuration CORS
+// ✅ Configuration CORS
 const corsOptions = {
   origin: "https://www.vincenttenret.ch",
   methods: "POST",
   allowedHeaders: ["Content-Type"],
+  optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Vérification et configuration de SendGrid
+// ✅ Vérification et configuration de SendGrid
 if (
   !process.env.SENDGRID_API_KEY ||
   !process.env.SENDGRID_API_KEY.startsWith("SG.")
 ) {
-  console.error("❌ Erreur: Clé API SendGrid invalide !");
+  console.error("❌ Erreur: Clé API SendGrid invalide ou absente !");
   process.exit(1);
 }
-
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-// **API pour gérer les formulaires de contact**
+// ✅ Route API pour formulaire de contact
 app.post("/api/contact", async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -38,24 +38,33 @@ app.post("/api/contact", async (req, res) => {
 
   const msg = {
     to: "info@vincenttenret.ch",
-    from: "info@vincenttenret.ch",
+    from: "info@vincenttenret.ch", // Doit être un email validé par SendGrid
     subject: `Nouveau message de ${name}`,
-    html: `<p><strong>Nom:</strong> ${name}</p>
-           <p><strong>Email:</strong> ${email}</p>
-           <p><strong>Message:</strong></p>
-           <p>${message}</p>`,
+    html: `
+      <p><strong>Nom:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message}</p>
+    `,
   };
 
   try {
     await sgMail.send(msg);
+    console.log("✅ Email envoyé avec succès !");
     res.status(200).json({ message: "Email envoyé avec succès !" });
   } catch (error) {
-    console.error("❌ Erreur d'envoi :", error.response?.body || error.message);
-    res.status(500).json({ error: "Erreur lors de l'envoi du message." });
+    console.error(
+      "❌ Erreur SendGrid :",
+      error.response?.body || error.message
+    );
+    res.status(500).json({
+      error: "Erreur lors de l'envoi du message.",
+      details: error.response?.body || error.message,
+    });
   }
 });
 
-// **Servir le frontend React en production**
+// ✅ Servir le frontend React en production
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 app.get("*", (req, res) => {
