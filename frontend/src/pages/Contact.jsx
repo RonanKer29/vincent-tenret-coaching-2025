@@ -136,6 +136,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-2 mt-1 border rounded-md shadow-sm border-blue-6 focus:ring-2 focus:ring-blue-9 focus:outline-none"
+              placeholder="Votre nom"
             />
           </div>
 
@@ -150,6 +151,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-2 mt-1 border rounded-md shadow-sm border-blue-6 focus:ring-2 focus:ring-blue-9 focus:outline-none"
+              placeholder="Votre email"
             />
           </div>
 
@@ -164,6 +166,7 @@ const Contact = () => {
               onChange={handleChange}
               required
               className="w-full px-4 py-2 mt-1 border rounded-md shadow-sm border-blue-6 focus:ring-2 focus:ring-blue-9 focus:outline-none"
+              placeholder="Votre message"
             />
           </div>
 
