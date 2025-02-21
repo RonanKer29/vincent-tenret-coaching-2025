@@ -8,6 +8,15 @@ dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const app = express();
 
+// ✅ Middleware pour bloquer les accès interdits
+app.use((req, res, next) => {
+  const blockedPaths = ["/.env", "/phpinfo.php", "/shell.php"];
+  if (blockedPaths.includes(req.path.toLowerCase())) {
+    return res.status(403).send("Access forbidden 🚫");
+  }
+  next();
+});
+
 // ✅ Configuration CORS
 const corsOptions = {
   origin: "https://www.vincenttenret.ch",
