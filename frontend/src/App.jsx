@@ -7,10 +7,12 @@ import Prices from "./pages/Prices";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import useScrollToTop from "./hooks/useScrollToTop"; // Import du hook
+import { Toaster } from "@/components/ui/toaster"; // ✅ Import du Toaster
 import "./index.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
-  useScrollToTop(); // Appel du hook en haut du composant
+  useScrollToTop();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -27,6 +29,8 @@ const App = () => {
       </main>
 
       <Footer />
+      <Analytics />
+      <Toaster />
     </div>
   );
 };

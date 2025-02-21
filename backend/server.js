@@ -55,7 +55,7 @@ if (
 }
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-// ✅ Route API pour formulaire de contact avec validation
+// ✅ Route API pour formulaire de contact avec validation et email de confirmation
 app.post(
   "/api/contact",
   [
@@ -80,7 +80,8 @@ app.post(
 
     const { name, email, message } = req.body;
 
-    const msg = {
+    // ✅ Email de notification pour toi
+    const notificationEmail = {
       to: "info@vincenttenret.ch",
       from: "info@vincenttenret.ch", // Doit être un email validé par SendGrid
       subject: `Nouveau message de ${name}`,
@@ -92,10 +93,32 @@ app.post(
       `,
     };
 
+    // ✅ Email de confirmation pour l'utilisateur
+    const confirmationEmail = {
+      to: email, // L'email de l'utilisateur
+      from: "info@vincenttenret.ch", // Ton email vérifié
+      subject: "Confirmation de votre message",
+      html: `
+        <p>Bonjour ${sanitizeHtml(name)},</p>
+        <p>Merci pour votre message ! J'ai bien reçu votre demande et je vous répondrai dès que possible.</p>
+        <p><strong>Votre message :</strong></p>
+        <blockquote style="background:#f4f4f4;padding:10px;border-left:5px solid #ccc;">
+          ${sanitizeHtml(message)}
+        </blockquote>
+        <p>À bientôt !</p>
+        <p><strong>Vincent Tenret</strong></p>
+      `,
+    };
+
     try {
-      await sgMail.send(msg);
-      console.log("✅ Email envoyé avec succès !");
-      res.status(200).json({ message: "Email envoyé avec succès !" });
+      // Envoi des emails en parallèle
+      await Promise.all([
+        sgMail.send(notificationEmail),
+        sgMail.send(confirmationEmail),
+      ]);
+
+      console.log("✅ Emails envoyés avec succès !");
+      res.status(200).json({ message: "Emails envoyés avec succès !" });
     } catch (error) {
       console.error(
         "❌ Erreur SendGrid :",
