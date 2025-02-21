@@ -29,6 +29,25 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
+    // Vérification côté client
+    if (!/^[a-zA-ZÀ-ÿ '-]{2,50}$/.test(formData.name)) {
+      alert(
+        "Le nom doit contenir uniquement des lettres et espaces (2-50 caractères)."
+      );
+      setLoading(false);
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      alert("Adresse email invalide.");
+      setLoading(false);
+      return;
+    }
+    if (formData.message.length < 10 || formData.message.length > 1000) {
+      alert("Le message doit contenir entre 10 et 1000 caractères.");
+      setLoading(false);
+      return;
+    }
+
     try {
       const res = await fetch(API_URL, {
         method: "POST",
@@ -44,7 +63,9 @@ const Contact = () => {
         setFormData({ name: "", email: "", message: "" });
       } else {
         alert(
-          "Erreur : " + (data.error || "Une erreur inconnue s'est produite.")
+          "Erreur : " +
+            (data.errors?.map((e) => e.msg).join(", ") ||
+              "Une erreur inconnue s'est produite.")
         );
       }
     } catch (error) {

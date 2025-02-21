@@ -10,5 +10,11 @@
   "engines": {
     "node": "20.x",
     "npm": ">=10.x"
+  },
+  "dependencies": {
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.0.0",
+    "sanitize-html": "^2.14.0"
   }
 }

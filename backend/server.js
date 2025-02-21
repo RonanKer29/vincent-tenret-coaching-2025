@@ -3,10 +3,25 @@ const path = require("path");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const sgMail = require("@sendgrid/mail");
+const helmet = require("helmet");
+const rateLimit = require("express-rate-limit");
+const { body, validationResult } = require("express-validator");
+const sanitizeHtml = require("sanitize-html");
 
 dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 const app = express();
+
+// ✅ Protection avec Helmet
+app.use(helmet());
+
+// ✅ Limite le nombre de requêtes pour éviter le spam (5 requêtes/min)
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 5, // Limite à 5 requêtes par minute
+  message: "Trop de requêtes, veuillez réessayer plus tard.",
+});
+app.use("/api/contact", limiter);
 
 // ✅ Middleware pour bloquer les accès interdits
 app.use((req, res, next) => {
@@ -19,7 +34,10 @@ app.use((req, res, next) => {
 
 // ✅ Configuration CORS
 const corsOptions = {
-  origin: "https://www.vincenttenret.ch",
+  origin:
+    process.env.NODE_ENV === "production"
+      ? "https://www.vincenttenret.ch"
+      : "http://localhost:5173", // Autoriser localhost en développement
   methods: "POST",
   allowedHeaders: ["Content-Type"],
   optionsSuccessStatus: 200,
@@ -37,41 +55,59 @@ if (
 }
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-// ✅ Route API pour formulaire de contact
-app.post("/api/contact", async (req, res) => {
-  const { name, email, message } = req.body;
+// ✅ Route API pour formulaire de contact avec validation
+app.post(
+  "/api/contact",
+  [
+    body("name")
+      .trim()
+      .isLength({ min: 2, max: 50 })
+      .withMessage("Le nom doit contenir entre 2 et 50 caractères.")
+      .matches(/^[a-zA-ZÀ-ÿ '-]+$/)
+      .withMessage("Le nom ne doit contenir que des lettres et des espaces."),
+    body("email").isEmail().withMessage("Adresse email invalide."),
+    body("message")
+      .trim()
+      .isLength({ min: 10, max: 1000 })
+      .withMessage("Le message doit contenir entre 10 et 1000 caractères.")
+      .customSanitizer((value) => sanitizeHtml(value)),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: "Tous les champs sont requis." });
+    const { name, email, message } = req.body;
+
+    const msg = {
+      to: "info@vincenttenret.ch",
+      from: "info@vincenttenret.ch", // Doit être un email validé par SendGrid
+      subject: `Nouveau message de ${name}`,
+      html: `
+        <p><strong>Nom:</strong> ${sanitizeHtml(name)}</p>
+        <p><strong>Email:</strong> ${sanitizeHtml(email)}</p>
+        <p><strong>Message:</strong></p>
+        <p>${sanitizeHtml(message)}</p>
+      `,
+    };
+
+    try {
+      await sgMail.send(msg);
+      console.log("✅ Email envoyé avec succès !");
+      res.status(200).json({ message: "Email envoyé avec succès !" });
+    } catch (error) {
+      console.error(
+        "❌ Erreur SendGrid :",
+        error.response?.body || error.message
+      );
+      res.status(500).json({
+        error: "Erreur lors de l'envoi du message.",
+        details: error.response?.body || error.message,
+      });
+    }
   }
-
-  const msg = {
-    to: "info@vincenttenret.ch",
-    from: "info@vincenttenret.ch", // Doit être un email validé par SendGrid
-    subject: `Nouveau message de ${name}`,
-    html: `
-      <p><strong>Nom:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Message:</strong></p>
-      <p>${message}</p>
-    `,
-  };
-
-  try {
-    await sgMail.send(msg);
-    console.log("✅ Email envoyé avec succès !");
-    res.status(200).json({ message: "Email envoyé avec succès !" });
-  } catch (error) {
-    console.error(
-      "❌ Erreur SendGrid :",
-      error.response?.body || error.message
-    );
-    res.status(500).json({
-      error: "Erreur lors de l'envoi du message.",
-      details: error.response?.body || error.message,
-    });
-  }
-});
+);
 
 // ✅ Servir le frontend React en production
 app.use(express.static(path.join(__dirname, "../frontend/dist")));
